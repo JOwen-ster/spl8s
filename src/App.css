@@ -1,0 +1,389 @@
+:root {
+  --accent-rgb: 108, 82, 250;
+  --color-accent: rgb(var(--accent-rgb));
+  --color-alpha: #fefd5d;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #333;
+  --color-text-muted: #555;
+  --color-subtitle: #f2f2f2;
+  --color-background: #121212;
+  --color-button-start: #fdfb65;
+  --color-button-end: #6c58f8;
+  --accent-border: rgba(var(--accent-rgb), 0.3);
+  --accent-border-hover: rgba(var(--accent-rgb), 0.6);
+  --accent-glow: rgba(var(--accent-rgb), 0.4);
+  --surface-panel: rgba(255, 255, 255, 0.95);
+  --surface-input: rgba(255, 255, 255, 0.9);
+  --surface-group: rgba(255, 255, 255, 0.8);
+  --surface-border: rgba(255, 255, 255, 0.2);
+  --shadow-faint: rgba(0, 0, 0, 0.1);
+  --shadow-soft: rgba(0, 0, 0, 0.2);
+  --shadow-medium: rgba(0, 0, 0, 0.3);
+  --shadow-strong: rgba(0, 0, 0, 0.4);
+  --panel-shadow: 0 8px 32px var(--shadow-soft);
+  --heading-shadow: 2px 2px 8px var(--shadow-medium);
+  --space-2: 8px;
+  --space-3: 10px;
+  --space-4: 12px;
+  --space-5: 15px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 30px;
+  --space-9: 40px;
+  --radius-panel: 20px;
+  --radius-control: 15px;
+  --radius-input: 10px;
+  --font-size-legend: 1.2rem;
+  --transition: all 0.3s ease;
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100dvh;
+  background: var(--color-background) url('/background.png') center / cover no-repeat;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: var(--space-6);
+  margin: 0;
+}
+
+.github-button {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-2);
+  background: var(--surface-panel);
+  border-radius: var(--radius-input);
+  box-shadow: var(--panel-shadow);
+}
+
+.github-button img {
+  display: block;
+  width: 112px;
+  height: auto;
+}
+
+.github-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .github-button {
+    position: static;
+    width: fit-content;
+    margin: 0 0 var(--space-5) auto;
+  }
+}
+
+.title {
+  color: var(--color-white);
+  font-size: 3rem;
+  margin-bottom: var(--space-3);
+  margin-top: 0;
+  text-shadow: var(--heading-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  font-weight: bold;
+}
+
+.sub-title {
+  color: var(--color-subtitle);
+  font-size: 1rem;
+  margin-bottom: var(--space-8);
+  text-shadow: var(--heading-shadow);
+  text-align: inherit;
+}
+
+.setup-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-7);
+  max-width: 840px;
+  margin: 0 auto var(--space-9);
+  align-items: start;
+}
+
+.input-container {
+  min-width: 0;
+  margin: 0;
+  background: var(--surface-panel);
+  padding: var(--space-6);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--panel-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--surface-border);
+  max-width: 800px;
+}
+
+.shuffle-settings {
+  position: absolute;
+  top: 0;
+  left: calc(100% + var(--space-7));
+  box-sizing: border-box;
+  width: 280px;
+  padding: var(--space-6);
+  border-radius: var(--radius-panel);
+  background: var(--surface-panel);
+  box-shadow: var(--panel-shadow);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.support-options {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.support-options legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-legend);
+  font-weight: bold;
+}
+
+.settings-hint, .option-description {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.support-option {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  cursor: pointer;
+}
+
+.support-option input {
+  accent-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.support-option input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.option-description {
+  display: block;
+  margin-top: 4px;
+}
+
+@media (max-width: 1487px) {
+  .shuffle-settings {
+    position: static;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-container {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .player-input {
+    width: 100%;
+  }
+}
+
+.input-title {
+  color: var(--color-text);
+  margin: 0 0 var(--space-5) 0;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.section-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-accent);
+}
+
+.role-group {
+  margin-bottom: 25px;
+  padding: var(--space-6);
+  border: 2px solid var(--accent-border);
+  border-radius: var(--radius-control);
+  background: var(--surface-group);
+  box-shadow: 0 4px 15px var(--shadow-faint);
+  transition: var(--transition);
+}
+
+.role-group:hover {
+  border-color: var(--accent-border-hover);
+}
+
+.role-group legend {
+  font-weight: bold;
+  color: var(--color-text);
+  font-size: var(--font-size-legend);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--surface-input);
+  border: 2px solid var(--accent-border);
+  border-radius: var(--radius-control);
+  padding: var(--space-2) var(--space-5);
+  margin-left: 0;
+  text-align: left;
+}
+
+.role-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-accent);
+}
+
+.role-inputs {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.player-input {
+  flex: 1;
+  min-width: 140px;
+  padding: var(--space-4) 16px;
+  border: 2px solid var(--accent-border);
+  border-radius: var(--radius-input);
+  font-size: 16px;
+  transition: var(--transition);
+  background: var(--surface-input);
+  color: var(--color-text);
+}
+
+.player-input:hover {
+  border-color: var(--accent-border-hover);
+}
+
+.player-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-8px);
+  background: var(--color-white);
+}
+
+.teams-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-9);
+  flex-wrap: wrap;
+}
+
+.team-container {
+  color: var(--color-black);
+  border-radius: var(--radius-panel);
+  padding: var(--space-8);
+  min-width: 300px;
+  box-shadow: 0 10px 30px var(--shadow-medium);
+  transition: var(--transition);
+}
+
+.team-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px var(--shadow-strong);
+}
+
+.team-container:first-child {
+  background: var(--color-alpha);
+}
+
+.team-container:last-child {
+  background: var(--color-accent);
+}
+
+.team-title {
+  margin-bottom: var(--space-6);
+  font-size: 2rem;
+  border-bottom: 3px dashed currentColor;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  font-weight: bold;
+  text-shadow: 1px 1px 3px var(--shadow-soft);
+}
+
+.team-content {
+  text-align: left;
+}
+
+.team-role {
+  margin-bottom: var(--space-5);
+  font-size: 1.1rem;
+  padding: var(--space-4) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.inline-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.team-role strong {
+  display: inline-block;
+  width: 80px;
+  font-weight: bold;
+}
+
+.shuffle-button {
+  background: linear-gradient(135deg, var(--color-button-start), var(--color-button-end));
+  color: var(--color-black);
+  border: none;
+  padding: 18px 35px;
+  font-size: 1.3rem;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 8px 25px var(--shadow-medium);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 auto;
+}
+
+.shuffle-button:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px var(--shadow-strong);
+}
+
+.shuffle-button:active {
+  transform: translateY(0);
+}
+
+.button-icon {
+  width: 24px;
+  height: 24px;
+}
