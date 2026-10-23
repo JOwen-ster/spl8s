@@ -217,7 +217,7 @@ export default function App(): ReactElement {
       <Toaster position="bottom-right" />
       <a
         className="github-button"
-        href="https://github.com/JOwen-ster/eights-creator"
+        href="https://github.com/JOwen-ster/spl8s"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View Eights Creator on GitHub"
